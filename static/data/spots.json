@@ -103,8 +103,31 @@
         "longitude": 133.37864,
         "details": "江戸時代に建てられた灯火。港を見守る。",
         "type":"restaurant"
-      }
+      },
 
+      {
+        "name": "明圓寺",
+        "latitude": 34.38375,
+        "longitude": 133.37835,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "本願寺",
+        "latitude": 34.38684,
+        "longitude": 133.37993,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "雁木",
+        "latitude": 34.38308,
+        "longitude": 133.38149,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      }
       
     ]
   }

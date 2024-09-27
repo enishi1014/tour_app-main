@@ -10,8 +10,6 @@ import os
 import json
 from dotenv import load_dotenv
 
-
-
 # .env ファイルから環境変数をロード
 load_dotenv()
 
@@ -44,44 +42,17 @@ client = boto3.client('location', region_name=os.getenv('AWS_REGION'))
 with open('static\data\model_courses.json', 'r', encoding='utf-8') as f:
     routes_data = json.load(f)
 
-    # スポットデータのロード (JSONファイルから)
+# スポットデータのロード (JSONファイルから)
 with open('static\data\spots.json', 'r', encoding='utf-8') as f:
     spots_data = json.load(f)
-    
-# ハバーサインの公式による距離計算
-def haversine_distance(coord1, coord2):
-    R = 6371.0  # 地球の半径 (km)
-    lat1, lon1 = math.radians(coord1[1]), math.radians(coord1[0])
-    lat2, lon2 = math.radians(coord2[1]), math.radians(coord2[0])
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
-
-    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-
-    return R * c
-
-# 出発点を固定してスポットを並び替え
-def sort_spots(start, spots):
-    route = [start]
-    remaining_spots = spots.copy()
-
-    while remaining_spots:
-        nearest_spot = min(remaining_spots, key=lambda spot: haversine_distance(route[-1], spot))
-        route.append(nearest_spot)
-        remaining_spots.remove(nearest_spot)
-
-    return route
 
 @app.route('/')
-
 def index():
     # ダミーのポイントデータ
     temples = {'point': 100}
-    return render_template('index.html',routes=routes_data, temples=temples)
+    return render_template('index.html', routes=routes_data, temples=temples)
 
 # マップデータを提供するAPI
-
 @app.route('/get-spots', methods=['GET'])
 def get_spots():
     return jsonify(spots_data)
@@ -96,14 +67,12 @@ def calculate_route():
             return jsonify({'error': 'Invalid route ID'}), 400
 
         spots = route['spots']
-        sorted_spots = sort_spots(spots[0], spots[1:-1])  # 出発点と中間地点を並び替え
-        sorted_spots.append(spots[-1])  # 終点を追加
 
         response = client.calculate_route(
             CalculatorName=os.getenv('ROUTE_CALCULATOR_NAME'),
-            DeparturePosition=sorted_spots[0],  # 出発地点
-            DestinationPosition=sorted_spots[-1],  # 終点
-            WaypointPositions=sorted_spots[1:-1],  # 中間地点
+            DeparturePosition=spots[0],  # 出発地点
+            DestinationPosition=spots[-1],  # 終点
+            WaypointPositions=spots[1:-1],  # 中間地点
             IncludeLegGeometry=True
         )
 
@@ -120,6 +89,7 @@ def qr_reader():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
 #画面遷移（NEW_Registration）
 @app.route('/New_Registration')
 def new_registration():
