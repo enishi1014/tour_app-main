@@ -43,6 +43,11 @@ client = boto3.client('location', region_name=os.getenv('AWS_REGION'))
 # スポットデータのロード (JSONファイルから)
 with open('static\data\model_courses.json', 'r', encoding='utf-8') as f:
     routes_data = json.load(f)
+
+    # スポットデータのロード (JSONファイルから)
+with open('static\data\spots.json', 'r', encoding='utf-8') as f:
+    spots_data = json.load(f)
+    
 # ハバーサインの公式による距離計算
 def haversine_distance(coord1, coord2):
     R = 6371.0  # 地球の半径 (km)
@@ -76,6 +81,10 @@ def index():
     return render_template('index.html',routes=routes_data, temples=temples)
 
 # マップデータを提供するAPI
+
+@app.route('/get-spots', methods=['GET'])
+def get_spots():
+    return jsonify(spots_data)
 
 @app.route('/calculate-route', methods=['POST'])
 def calculate_route():

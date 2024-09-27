@@ -1,0 +1,111 @@
+{
+    "spots": [
+      
+      
+      {
+        "name": "鞆の浦歴史民俗資料館",
+        "latitude": 34.38428,
+        "longitude": 133.38181,
+        "details": "鞆の浦の歴史や文化を紹介する博物館。古い建物の中で地元の歴史を学べます。",
+        "type": "temple"
+      },
+      {
+        "name": "福禅寺對潮楼",
+        "latitude": 34.38308,
+        "longitude": 133.38327,
+        "details": "鞆の浦の歴史や文化を紹介する博物館。古い建物の中で地元の歴史を学べます。",
+        "type": "temple"
+      },
+      
+      {
+        "name": "太田家住宅",
+        "latitude": 34.38296,
+        "longitude": 133.38086,
+        "details": "国の重要文化財に指定されている江戸時代の豪商の邸宅。",
+        "type":"temple"
+      },
+
+      {
+        "name": "常夜燈",
+        "latitude": 34.38248,
+        "longitude": 133.38034,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"temple"
+      },
+
+      {
+        "name": "いろは丸展示館",
+        "latitude": 34.38265,
+        "longitude": 133.38083,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"temple"
+      },
+
+      {
+        "name": "茶房 船番所",
+        "latitude": 34.38130,
+        "longitude": 133.38271,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "鞆の浦 a cafe",
+        "latitude": 34.38257,
+        "longitude": 133.38075,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "鞆の浦 魚処 鯛亭",
+        "latitude": 34.38331,
+        "longitude": 133.38390,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "食事処 おてび",
+        "latitude": 34.38353,
+        "longitude": 133.38089,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "鞆の津の商家",
+        "latitude": 34.38388,
+        "longitude": 133.38270,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "阿伏兎観音",
+        "latitude": 34.36581,
+        "longitude": 133.34596,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "医王寺",
+        "latitude": 34.38327,
+        "longitude": 133.37684,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      },
+
+      {
+        "name": "沼名前神社",
+        "latitude": 34.38632,
+        "longitude": 133.37864,
+        "details": "江戸時代に建てられた灯火。港を見守る。",
+        "type":"restaurant"
+      }
+
+      
+    ]
+  }
+  
