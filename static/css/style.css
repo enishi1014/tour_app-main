@@ -1,0 +1,259 @@
+/* 全体のスタイル */
+body {
+    font-family: 'Noto Serif JP', serif;
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8b4513;
+    color: white;
+    padding: 30px;
+}
+
+
+header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header .title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+/* メインコンテンツ */
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #ccac66;
+    justify-content: center;
+    align-items: center;
+}
+
+/* マップのスタイル */
+#map {
+    width: 90%;
+    height: 70%;
+    background-color: #b7ca8c;
+    border: 2px solid #060607;
+}
+
+/* モデルコース選択メニュー */
+.course-selector {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.course-selector label {
+    margin-right: 5px;
+}
+
+/* フッター */
+footer {
+    background-color: #006699;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* メニュー */
+/* スタンプカード用のCSS */
+.stamp-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 80px;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    border: 2px solid #006699;
+}
+
+.stamp {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #006699;
+    text-align: center;
+    line-height: 50px;
+    margin: 5px;
+}
+
+.filled {
+    background-color: #ff3b58;
+    color: white;
+}
+
+
+
+
+.stamp.active {
+    background-color: #006699;
+    color: white;
+}
+
+/* コメントフォーム */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.comment-form textarea {
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+}
+
+.comment-form button {
+    padding: 5px;
+    background-color: rgb(92, 88, 81);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.comment-list {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 50px;
+    width: 80%;
+    height: 150px;
+    overflow-y: auto;
+    border: 1px solid #006699;
+}
+
+.comment-list .comment {
+    margin-bottom: 10px;
+    position: relative;
+    padding: 10px;
+    background-color: #E0F7FA;
+    border-radius: 10px;
+    border: 1px solid #006699;
+}
+
+.comment-list .comment::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #E0F7FA transparent transparent;
+}
+
+.username {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.menu {
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    z-index: 10;
+}
+
+
+
+
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+.menu a:hover {
+    background-color: #444;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.bar {
+    height: 3px;
+    background-color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* メニューを開いたときに×ボタンを表示 */
+.menu-open #close-menu {
+    display: block;
+}
+
+/* レスポンシブ対応 */
+@media screen and (min-width: 600px) {
+    header .logo img {
+        width: 90px;
+        /* 必要に応じて画像サイズを調整 */
+        height: 70px;
+        border-radius: 50%;
+        /* 画像を丸くする */
+    }
+
+
+    header .title {
+        font-size: 28px;
+    }
+
+    main #map {
+        width: 80%;
+        height: 50%;
+    }
+
+    .comment-list {
+        height: 100px;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>観光ガイドアプリ</title>
+    <!-- 外部CSSファイルの読み込み -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- MapLibre GL JSのCSS -->
+    <link href="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/souryo.jpg') }}" alt="僧侶" />
+        </div>
+        <div class="title">ガイド/guide</div>
+    </header>
+
+    <div class="menu" id="menu">
+        <!-- × ボタン -->
+        <div id="close-menu" class="close-btn" style="display:none;">&times;</div>
+
+        <a href="{{ url_for('login') }}">ログアウト</a>
+        <p id="points-display">現在のポイント: 0</p>
+        <a href="{{ url_for('qr_reader') }}">QRreader</a>
+
+
+        <a href="#">スタンプ一覧</a>
+        <div id="stamps">
+            <div class="stamp" id="stamp-A">A</div>
+            <div class="stamp" id="stamp-B">B</div>
+            <div class="stamp" id="stamp-C">C</div>
+            <div class="stamp" id="stamp-D">D</div>
+            <div class="stamp" id="stamp-E">E</div>
+            <div class="stamp" id="stamp-F">F</div>
+        </div>
+
+    </div>
+
+    <main>
+        <div>
+            <h1>ルートを選択してください</h1>
+            <select id="route-select">
+                {% for route_id, route in routes.items() %}
+                <option value="{{ route_id }}">{{ route['name'] }}</option>
+                {% endfor %}
+            </select>
+            <button id="load-route">ルートを表示</button>
+        </div>
+        <div id="map" style="width: 100%; height: 500px;"></div>
+    </main>
+
+    <div class="comment-list" id="comment-list">
+        コメント欄
+    </div>
+    <!-- コメント入力フォームを直接表示 --> <!-- 追加 -->
+    <div class="comment-form" id="comment-form">
+        <textarea id="comment" placeholder="コメントを入力してください"></textarea>
+        <button onclick="postComment()">投稿</button>
+    </div>
+
+
+
+    <!-- ハンバーガーメニューのスクリプト -->
+    <script src="static/js/map.js"></script>
+
+    <!-- MapLibre GL JSのスクリプト -->
+    <script src="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js"></script>
+
+</body>
+
+</html>

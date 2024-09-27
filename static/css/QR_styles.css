@@ -1,0 +1,85 @@
+body {
+    font-family: 'Ropa Sans', serif;
+    background-color: #f2e6d9;
+    color: #333;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 20px;
+    color: #7b4b00;
+}
+
+#loadingMessage {
+    text-align: center;
+    padding: 40px;
+    background-color: #eee;
+    border: 2px solid #7b4b00;
+    margin-top: 20px;
+}
+
+#canvas {
+    width: 100%;
+    border: 2px solid #7b4b00;
+}
+
+#output {
+    margin-top: 20px;
+    background: #eee;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+#output div {
+    padding-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#stampCard {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff7e6;
+    border: 2px solid #7b4b00;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#stampCard h2 {
+    color: #7b4b00;
+}
+
+.stamp {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: 2px solid #7b4b00;
+    line-height: 50px;
+    font-size: 24px;
+    background-color: #fffaf0;
+    color: #7b4b00;
+}
+
+.filled {
+    background-color: #c5a880;
+    color: white;
+}
+
+#points {
+    font-size: 24px;
+    color: #7b4b00;
+    font-weight: bold;
+}
+
+#pointsContainer {
+    background-color: #fffaf0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #7b4b00;
+    margin-top: 20px;
+    display: inline-block;
+}
