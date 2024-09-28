@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const map = new maplibregl.Map({
         container: "map",
         style: `https://maps.geo.${mapRegion}.amazonaws.com/maps/v0/maps/${mapName}/style-descriptor?key=${mapApiKey}`,
-        center: [133.37985, 34.38368],  // 鞆の浦の中心
-        zoom: 14,
+        center: [133.381502, 34.382515],  // 鞆の浦の中心
+        zoom: 16,
         //maxBounds: bounds  // マップの移動範囲を鞆の浦周辺に制限
     });
 
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                     .addTo(map);
 
                 // 地図の中心を現在地に移動
-                map.setCenter(userCoords);
-                map.setZoom(14);  // 現在地にズーム
+                //map.setCenter(userCoords);
+                //map.setZoom(14);  // 現在地にズーム
             }, error => {
                 console.error('現在地を取得できませんでした:', error);
             });

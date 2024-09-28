@@ -3,7 +3,7 @@ import json
 import requests
 from flask_cors import CORS  # CORSのインポート
 from flask_wtf.csrf import CSRFProtect
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify,url_for, redirect,request,session
 import boto3
 import math
 import os
@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-
+app.secret_key = 'supersecretkey123!'
 # CORSを有効にする
 CORS(app)
 
@@ -29,10 +29,12 @@ def login_info():
     password = data.get('password')
     
     # 仮のログインチェック（必要ならここでDB照合など）
-    if userid == 'admin' and password == 'password123':
-        return jsonify({"message": "Login successful"})
+    if userid == 'admin' and password == '123':
+        session['logged_in'] = True  # ログイン状態をセッションに保存
+        return jsonify({"success": True, "message": "Login successful"})
     else:
-        return jsonify({"message": "Invalid credentials"}), 401
+        return jsonify({"success": False, "message": "Invalid credentials"}), 401
+
 
 
 # AWS SDK (Boto3) でのクライアント作成
@@ -48,9 +50,12 @@ with open('static\data\spots.json', 'r', encoding='utf-8') as f:
 
 @app.route('/')
 def index():
-    # ダミーのポイントデータ
+    if not session.get('logged_in'):  # ログインしていない場合はログインページへ
+        return redirect(url_for('login'))
+    # ログイン済みの場合はindex.htmlを表示
     temples = {'point': 100}
     return render_template('index.html', routes=routes_data, temples=temples)
+
 
 # マップデータを提供するAPI
 @app.route('/get-spots', methods=['GET'])

@@ -85,29 +85,33 @@
 </body>
 <script type="text/javascript">
     const login = () => {
-        console.log("Login button clicked");
         fetch('/api/login-info', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                userid: document.getElementById("userid").value,  // 値を取得
-                password: document.getElementById("password").value  // 値を取得
+                userid: document.getElementById("userid").value,
+                password: document.getElementById("password").value
             }),
             mode: 'cors'
         })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Success:', result);  // 成功時のレスポンスを表示
-                // ログインが成功した場合にリダイレクトする処理をここに追加可能
-            })
-            .catch(error => {
-                console.error('Error:', error);  // エラー時の処理
-            });
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {  // ログインが成功した場合
+                window.location.href = '/';  // ホームページ (index.html) にリダイレクト
+            } else {
+                alert(result.message);  // ログイン失敗時のエラーメッセージ
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("ログイン処理でエラーが発生しました。");
+        });
     }
 
     document.getElementById("login").addEventListener("click", login, false);
 </script>
+
 
 </html>
