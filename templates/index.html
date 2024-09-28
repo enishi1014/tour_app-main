@@ -60,18 +60,24 @@
     </main>
 
     <div class="comment-list" id="comment-list">
-        コメント欄
+        コメント欄/Comment
     </div>
-    <!-- コメント入力フォームを直接表示 --> <!-- 追加 -->
     <div class="comment-form" id="comment-form">
+        <label for="gender">良いコメントか悪いコメントか/Good Comment or Bad Comment</label>
+        <form id="comment_type" required>
+            <input type="radio" name="comment_type" value="good">良いコメント/Good Comment
+            <br/>
+            <input type="radio" name="comment_type" value="bad">悪いコメント/Bad Comment
+        </form>
         <textarea id="comment" placeholder="コメントを入力してください"></textarea>
-        <button onclick="postComment()">投稿</button>
+        <button id="add-comment">投稿/Post</button>
     </div>
 
 
 
     <!-- ハンバーガーメニューのスクリプト -->
     <script src="static/js/map.js"></script>
+    <script src="static/js/scripts.js"></script>
 
     <!-- MapLibre GL JSのスクリプト -->
     <script src="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js"></script>
